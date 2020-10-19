@@ -10,6 +10,7 @@ Original file is located at
 # !pip install soundcloud-lib
 
 from sclib import SoundcloudAPI, Track, Playlist
+from IPython.display import Image, display_jpeg
 
 api = SoundcloudAPI()
 
@@ -29,6 +30,7 @@ for index, item in enumerate(array):
     print('■' + str(index) + '：' + item)
     x = 'track.'+item
     print(eval(x))
+display_jpeg(Image(track.user['avatar_url']))
 
 # playlistのtracksをすべて表示
 playlist_url = 'https://soundcloud.com/chillysource/sets/dj-kro-mix'
@@ -45,3 +47,5 @@ for track_number, track in enumerate(playlist):
     track.track_no = track_number
     track.album = playlist.title
     print(str(track.track_no) + ':' + track.title + ' >> ' + track.album)
+    display_jpeg(Image(track.artwork_url))
+    # display_jpeg(Image(track.user['avatar_url']))
